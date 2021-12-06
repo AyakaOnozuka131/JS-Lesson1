@@ -1,4 +1,4 @@
-const prentElement = document.querySelector("ul");
+const prentElement = document.getElementById("js-lists");
 const childElement = document.createElement("li");
-childElement.innerText = "これです";
+childElement.textContent = "これです";
 prentElement.appendChild(childElement);
