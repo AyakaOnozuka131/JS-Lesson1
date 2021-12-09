@@ -16,8 +16,7 @@ const createElem= (obj)=> {
     imageElement.src = obj.imageUrl;
     imageElement.alt = obj.imageAlt;
 
-    parentElement.appendChild(listElement);
-    listElement.appendChild(anchorElement);
+    parentElement.appendChild(listElement).appendChild(anchorElement);
     anchorElement.insertAdjacentElement('afterbegin', imageElement);
 };
 
