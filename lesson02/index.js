@@ -16,8 +16,7 @@ const createElem = (obj)=> {
     img.src = obj.imageUrl;
     img.alt = obj.imageAlt;
 
-    ul.appendChild(li).appendChild(a);
-    a.insertAdjacentElement('afterbegin', img);
+    ul.appendChild(li).appendChild(a).insertAdjacentElement('afterbegin', img);
 };
 
 document.addEventListener('DOMContentLoaded', () => {
