@@ -5,19 +5,19 @@ const insertObj = {
     imageAlt: 'ブックマーク'
 };
 
-const createElem= (obj)=> {
-    const parentElement = document.getElementById('js-list');
-    const listElement = document.createElement('li');
-    const anchorElement = document.createElement('a');
-    const imageElement = document.createElement('img');
+const createElem = (obj)=> {
+    const ul = document.getElementById('js-list');
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    const img = document.createElement('img');
 
-    anchorElement.href = obj.anchorUrl;
-    anchorElement.textContent = obj.anchorText;
-    imageElement.src = obj.imageUrl;
-    imageElement.alt = obj.imageAlt;
+    a.href = obj.anchorUrl;
+    a.textContent = obj.anchorText;
+    img.src = obj.imageUrl;
+    img.alt = obj.imageAlt;
 
-    parentElement.appendChild(listElement).appendChild(anchorElement);
-    anchorElement.insertAdjacentElement('afterbegin', imageElement);
+    ul.appendChild(li).appendChild(a);
+    a.insertAdjacentElement('afterbegin', img);
 };
 
 document.addEventListener('DOMContentLoaded', () => {
