@@ -6,7 +6,7 @@ const insertObj = {
 };
 
 const createElem= (obj)=> {
-    const parentElement = document.getElementById('js-lists');
+    const parentElement = document.getElementById('js-list');
     const listElement = document.createElement('li');
     const anchorElement = document.createElement('a');
     const imageElement = document.createElement('img');
