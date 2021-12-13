@@ -1,4 +1,3 @@
-/** @type {Array} 画像パスの配列 */
 const imageUrl = ['bookmark.png', 'message.png'];
 const ul = document.getElementById('js-list');
 const fragment = document.createDocumentFragment();
