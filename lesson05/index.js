@@ -21,7 +21,7 @@ const fragment = document.createDocumentFragment();
 // Promiseオブジェクトの定義
 // Promiseオブジェクトの第一引数はresolve、第二引数にrejectを設定する
 // 今回は要件として「解決された値として受け取る」のでresolveのみを定義する
-const promise = new Promise((resolve) => {
+new Promise((resolve) => {
     // 引数に値（今回は配列）を渡す
     resolve(imageArray);
 
