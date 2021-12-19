@@ -1,4 +1,3 @@
-// 配列の定義
 const imageArray = [
     {
         to: "bookmark.html", 
@@ -14,7 +13,6 @@ const imageArray = [
     }
 ];
 
-// 変数の定義
 const ul = document.getElementById('js-list');
 const fragment = document.createDocumentFragment();
 
