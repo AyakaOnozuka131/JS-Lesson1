@@ -27,10 +27,10 @@ new Promise((resolve) => {
         const a = document.createElement('a');
         const img = document.createElement('img');
     
-        a.href = `/${val[i].to}`;
-        a.textContent = `${val[i].text}`;
-        img.src = `${val[i].img}`;
-        img.alt = `${val[i].alt}`;
+        a.href = val[i].to;
+        a.textContent = val[i].text;
+        img.src = val[i].img;
+        img.alt = val[i].alt;
     
         fragment.appendChild(li).appendChild(a).insertAdjacentElement('afterbegin', img);
     }
