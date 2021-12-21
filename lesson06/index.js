@@ -35,6 +35,5 @@ new Promise((resolve) => {
         fragment.appendChild(li).appendChild(a).insertAdjacentElement('afterbegin', img);
     }
 
-    // ulリスト内にfragmentを追加する
     ul.appendChild(fragment);
 });
