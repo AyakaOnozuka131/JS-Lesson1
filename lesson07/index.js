@@ -21,14 +21,7 @@ const createLoading = () => {
     loading.appendChild(loadingImg);
 };
 
-
-new Promise((resolve) => {
-    createLoading();
-    setTimeout(() => {
-        resolve(imageArray);
-    }, 3000);
-
-}).then((val) => {
+const addList = (val) => {
     for (let i = 0; i < val.length; i++) {
         const li = document.createElement('li');
         const img = document.createElement('img');
@@ -42,4 +35,14 @@ new Promise((resolve) => {
 
     ul.appendChild(fragment);
     loading.removeChild(loading.firstChild);
+};
+
+new Promise((resolve) => {
+    createLoading();
+    setTimeout(() => {
+        resolve(imageArray);
+    }, 3000);
+
+}).then((val) => {
+    addList(val);
 });
