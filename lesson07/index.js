@@ -12,16 +12,25 @@ const imageArray = [
 ];
 
 const ul = document.getElementById('js-list');
-const loading = document.getElementById('js-loading');
-const fragment = document.createDocumentFragment();
 
 const createLoading = () => {
+    const li = document.createElement("li");
     const loadingImg = document.createElement('img');
+
+    li.style.listStyle = "none";
+    li.id = "js-loading";
     loadingImg.src = 'loading-circle.gif';
-    loading.appendChild(loadingImg);
+    ul.appendChild(li).appendChild(loadingImg);
+};
+
+const removeLoading = () => {
+    const li = document.getElementById('js-loading');
+    
+    ul.removeChild(li);
 };
 
 const addList = (val) => {
+    const fragment = document.createDocumentFragment();
     for (let i = 0; i < val.length; i++) {
         const li = document.createElement('li');
         const img = document.createElement('img');
@@ -34,7 +43,6 @@ const addList = (val) => {
     }
 
     ul.appendChild(fragment);
-    loading.removeChild(loading.firstChild);
 };
 
 new Promise((resolve) => {
@@ -44,5 +52,6 @@ new Promise((resolve) => {
     }, 3000);
 
 }).then((val) => {
+    removeLoading();
     addList(val);
 });
