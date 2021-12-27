@@ -25,7 +25,7 @@ const createLoading = () => {
 
 const removeLoading = () => {
     const li = document.getElementById('js-loading');
-    
+
     ul.removeChild(li);
 };
 
@@ -45,13 +45,16 @@ const addList = (val) => {
     ul.appendChild(fragment);
 };
 
-new Promise((resolve) => {
+const fetchData = () => {
     createLoading();
-    setTimeout(() => {
-        resolve(imageArray);
-    }, 3000);
+    return promise = new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(imageArray);
+        }, 3000);
+    });
+};
 
-}).then((val) => {
+fetchData().then((val) => {
     removeLoading();
     addList(val);
 });
