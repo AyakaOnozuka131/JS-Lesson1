@@ -47,7 +47,7 @@ const addList = (val) => {
 
 const fetchData = () => {
     createLoading();
-    promise = new Promise(resolve => {
+    const promise = new Promise(resolve => {
         setTimeout(() => {
             resolve(imageArray);
         }, 3000);
