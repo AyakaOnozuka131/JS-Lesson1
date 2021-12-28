@@ -47,11 +47,12 @@ const addList = (val) => {
 
 const fetchData = () => {
     createLoading();
-    return promise = new Promise(resolve => {
+    promise = new Promise(resolve => {
         setTimeout(() => {
             resolve(imageArray);
         }, 3000);
     });
+    return promise;
 };
 
 fetchData().then((val) => {
