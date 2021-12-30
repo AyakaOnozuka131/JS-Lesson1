@@ -61,6 +61,10 @@ const fetchData = () => {
 /**
  * fetchDataで返ってきたエラーをキャッチしてconsoleにエラーを出力する
  */
-fetchData().catch((error) => {
+fetchData().then((val) => {
+    removeLoading();
+    addList(val);
+    
+}).catch((error) => {
     console.error(error);
 });
