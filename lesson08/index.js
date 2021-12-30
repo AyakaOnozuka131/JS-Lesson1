@@ -24,9 +24,7 @@ const createLoading = () => {
 };
 
 const removeLoading = () => {
-    const li = document.getElementById('js-loading');
-
-    ul.removeChild(li);
+    const li = document.getElementById('js-loading').remove();
 };
 
 const addList = (val) => {
