@@ -16,7 +16,7 @@ const createLoading = () => {
  */
 const fetchData = () => {
     createLoading();
-    return new Promise( (reject) => {
+    return new Promise( (resolve, reject) => {
         setTimeout(() => {
             reject(new Error("ERROR!"));
         }, 3000);
