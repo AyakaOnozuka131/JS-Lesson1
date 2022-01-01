@@ -48,7 +48,6 @@ const addList = (val) => {
  * @return {promise object} 
  */
 const fetchData = () => {
-    createLoading();
     return new Promise( resolve => {
         setTimeout(() => {
             resolve(imageArray);
@@ -61,6 +60,7 @@ const fetchData = () => {
  * fetchDataで値が返ってきた後、addList関数にその値を渡す
  */
 const init = async () => {
+    await createLoading();
     const data = await fetchData();
     removeLoading();
     addList(data);
