@@ -59,11 +59,11 @@ const fetchData = () => {
  * Async関数
  * fetchDataで値が返ってきた後、addList関数にその値を渡す
  */
-const init = async () => {
+const execution = async () => {
     await createLoading();
     const data = await fetchData();
     removeLoading();
     addList(data);
 };
 
-init();
+execution();
