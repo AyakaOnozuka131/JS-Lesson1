@@ -33,6 +33,18 @@ const addList = (val) => {
 };
 
 /**
+ * Promiseを実行し、resolveの値を返す関数
+ * @return {promise object} 
+ */
+ const fetchData = (json) => {
+    return new Promise( resolve => {
+        setTimeout(() => {
+            resolve(json);
+        }, 3000);
+    });
+};
+
+/**
  * Async関数
  * responseで値が返ってきた後、addList関数にその値を渡す
  */
@@ -41,8 +53,9 @@ const execution = async (url) => {
 
     try {
         const response = await fetch(url) // 中身はresponseオブジェクトを含むpromise
-        const fetchData = await response.json(); //response オブジェクトから JSON を抽出
-        addList(fetchData.data); //jsonをaddList関数に渡す
+        const json = await response.json(); //response オブジェクトから JSON を抽出
+        const data = await fetchData(json.data); //jsonをfetchData関数に渡す
+        addList(data);
 
     } catch(error) {
         console.error(error);
