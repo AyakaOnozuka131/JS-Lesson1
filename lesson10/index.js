@@ -23,9 +23,7 @@ const createLoading = () => {
     ul.appendChild(li).appendChild(loadingImg);
 };
 
-const removeLoading = () => {
-    document.getElementById('js-loading').remove();
-};
+const removeLoading = () => document.getElementById('js-loading').remove();
 
 const addList = (val) => {
     const fragment = document.createDocumentFragment();
