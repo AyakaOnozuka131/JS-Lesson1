@@ -55,11 +55,10 @@ const fetchData = async () => {
 
 /**
  * Async関数
- * responseで値が返ってきた後、addList関数にその値を渡す
+ * fetchData関数から値が返ってきた後、addList関数にその値を渡す
  */
 const execution = async () => {
     createLoading();
-
     try {
         const data = await fetchData();
         if( data.length === 0 ) {
