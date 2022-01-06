@@ -1,4 +1,4 @@
-const jsonUrl = 'https://myjson.dit.upm.es/api/bins/77w5';
+const jsonUrl = 'https://myjson.dit.upm.es/api/bins/4ubl';
 
 const ul = document.getElementById('js-list');
 
