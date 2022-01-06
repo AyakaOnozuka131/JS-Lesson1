@@ -33,15 +33,18 @@ const addList = (val) => {
 };
 
 /**
- * Promiseを実行し、resolveの値を返す関数
- * @return {promise object} 
+ * Async関数
+ * @return {Array} 
  */
- const fetchData = (json) => {
-    return new Promise( resolve => {
-        setTimeout(() => {
-            resolve(json);
-        }, 3000);
-    });
+ const fetchData = () => {
+    try {
+        const response = await fetch(url) // 中身はresponseオブジェクトを含むpromise
+        const json = await response.json(); //response オブジェクトから JSON を抽出
+        return json.data;
+
+    } catch(error) {
+        console.error(error);
+    } 
 };
 
 /**
@@ -52,9 +55,7 @@ const execution = async (url) => {
     createLoading();
 
     try {
-        const response = await fetch(url) // 中身はresponseオブジェクトを含むpromise
-        const json = await response.json(); //response オブジェクトから JSON を抽出
-        const data = await fetchData(json.data); //jsonをfetchData関数に渡す
+        const data = await fetchData(); //jsonをfetchData関数に渡す
         addList(data);
 
     } catch(error) {
