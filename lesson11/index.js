@@ -30,6 +30,13 @@ const addList = (val) => {
     ul.appendChild(fragment);
 };
 
+const createErrorMessage = (error) => {
+    const li = document.createElement("li");
+    li.textContent =`エラー内容：${error.message}`;
+    ul.appendChild(li);
+    console.error(error.message);
+};
+
 /**
  * Async関数 
  * @return {Array} 
