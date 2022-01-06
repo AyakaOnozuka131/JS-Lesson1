@@ -36,7 +36,7 @@ const addList = (val) => {
  * Async関数
  * @return {Array} 
  */
- const fetchData = () => {
+ const fetchData = async () => {
     try {
         const response = await fetch(url) // 中身はresponseオブジェクトを含むpromise
         const json = await response.json(); //response オブジェクトから JSON を抽出
