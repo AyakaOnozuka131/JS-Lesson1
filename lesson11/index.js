@@ -1,5 +1,3 @@
-const jsonUrl = 'https://myjson.dit.upm.es/api/bins/4ubl';
-
 const ul = document.getElementById('js-list');
 
 const createLoading = () => {
@@ -33,12 +31,13 @@ const addList = (val) => {
 };
 
 /**
- * Async関数
+ * Async関数 
  * @return {Array} 
  */
- const fetchData = async () => {
+const jsonUrl = 'https://myjson.dit.upm.es/api/bins/4ubl';
+const fetchData = async () => {
     try {
-        const response = await fetch(url) // 中身はresponseオブジェクトを含むpromise
+        const response = await fetch(jsonUrl) // 中身はresponseオブジェクトを含むpromise
         const json = await response.json(); //response オブジェクトから JSON を抽出
         return json.data;
 
@@ -55,7 +54,7 @@ const execution = async (url) => {
     createLoading();
 
     try {
-        const data = await fetchData(); //jsonをfetchData関数に渡す
+        const data = await fetchData(url); //jsonをfetchData関数に渡す
         addList(data);
 
     } catch(error) {
