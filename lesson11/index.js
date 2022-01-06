@@ -50,19 +50,22 @@ const fetchData = async () => {
  * Async関数
  * responseで値が返ってきた後、addList関数にその値を渡す
  */
-const execution = async (url) => {
+const execution = async () => {
     createLoading();
 
     try {
-        const data = await fetchData(url); //jsonをfetchData関数に渡す
+        const data = await fetchData();
+        if( data.length === 0 ) {
+            throw new Error('データが空です。');
+        }
         addList(data);
 
     } catch(error) {
-        console.error(error);
+        createErrorMessage(error);
 
     }  finally {
         removeLoading();
     }
 };
 
-execution(jsonUrl);
+execution();
