@@ -57,7 +57,7 @@ const fetchData = async () => {
  * Async関数
  * fetchData関数から値が返ってきた後、addList関数にその値を渡す
  */
-const execution = async () => {
+const createDataList = async () => {
     createLoading();
     try {
         const data = await fetchData();
@@ -74,4 +74,4 @@ const execution = async () => {
     }
 };
 
-execution();
+createDataList();
