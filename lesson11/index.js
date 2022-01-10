@@ -41,7 +41,7 @@ const createErrorMessage = (error) => {
  * Async関数 
  * @return {Array} 
  */
-const jsonUrl = 'https://myjson.dit.upm.es/api/bins/4ubl';
+const jsonUrl = 'http://myjson.dit.upm.es/api/bins/4tpn';
 const fetchData = async () => {
     try {
         const response = await fetch(jsonUrl) // 中身はresponseオブジェクトを含むpromise
@@ -55,16 +55,16 @@ const fetchData = async () => {
 
 /**
  * Async関数
- * fetchData関数から値が返ってきた後、addList関数にその値を渡す
+ * fetchData関数から値が返ってきた後、その値を返す
  */
-const createDataList = async () => {
+const fetchListData = async () => {
     createLoading();
     try {
         const data = await fetchData();
         if( data.length === 0 ) {
             throw new Error('データが空です。');
         }
-        addList(data);
+        return data;
 
     } catch(error) {
         createErrorMessage(error);
@@ -73,5 +73,3 @@ const createDataList = async () => {
         removeLoading();
     }
 };
-
-createDataList();
