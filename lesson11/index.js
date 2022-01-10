@@ -23,7 +23,7 @@ const createErrorMessage = (error) => {
  * Async関数 
  * @return {Array} 
  */
-const jsonUrl = 'http://myjson.dit.upm.es/api/bins/4tpn';
+const jsonUrl = 'https://myjson.dit.upm.es/api/bins/4tpn';
 const fetchData = async () => {
     try {
         const response = await fetch(jsonUrl) // 中身はresponseオブジェクトを含むpromise
