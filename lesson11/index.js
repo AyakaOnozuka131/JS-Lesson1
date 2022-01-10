@@ -75,10 +75,10 @@ const createList = async() => {
             img.alt = val[i].alt;
         
             fragment.appendChild(li).appendChild(a).appendChild(img);
-        }
+        };
     
         ul.appendChild(fragment);
     };
-    }
+};
 
 createList();
