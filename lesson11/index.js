@@ -12,24 +12,6 @@ const createLoading = () => {
 
 const removeLoading = () => document.getElementById('js-loading').remove();
 
-const addList = (val) => {
-    const fragment = document.createDocumentFragment();
-    for (let i = 0; i < val.length; i++) {
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        const img = document.createElement('img');
-    
-        a.href = `${val[i].a}.html`;
-        a.textContent = `${val[i].text}`;
-        img.src = val[i].img;
-        img.alt = val[i].alt;
-    
-        fragment.appendChild(li).appendChild(a).appendChild(img);
-    }
-
-    ul.appendChild(fragment);
-};
-
 const createErrorMessage = (error) => {
     const li = document.createElement("li");
     li.textContent =`エラー内容：${error.message}`;
@@ -73,3 +55,28 @@ const fetchListData = async () => {
         removeLoading();
     }
 };
+
+/**
+ * createList関数
+ * domのul内にli,aタグを作成し、fetchListDataで渡ってきた値を展開する
+ */
+const createList = async() => {
+    const val = await fetchListData();
+    const fragment = document.createDocumentFragment();
+    for (let i = 0; i < val.length; i++) {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        const img = document.createElement('img');
+    
+        a.href = `${val[i].a}.html`;
+        a.textContent = `${val[i].text}`;
+        img.src = val[i].img;
+        img.alt = val[i].alt;
+    
+        fragment.appendChild(li).appendChild(a).appendChild(img);
+    }
+
+    ul.appendChild(fragment);
+};
+
+createList();
