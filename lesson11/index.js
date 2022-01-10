@@ -63,20 +63,22 @@ const fetchListData = async () => {
 const createList = async() => {
     const val = await fetchListData();
     const fragment = document.createDocumentFragment();
-    for (let i = 0; i < val.length; i++) {
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        const img = document.createElement('img');
+    if( val ) {
+        for (let i = 0; i < val.length; i++) {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            const img = document.createElement('img');
+        
+            a.href = `${val[i].a}.html`;
+            a.textContent = `${val[i].text}`;
+            img.src = val[i].img;
+            img.alt = val[i].alt;
+        
+            fragment.appendChild(li).appendChild(a).appendChild(img);
+        }
     
-        a.href = `${val[i].a}.html`;
-        a.textContent = `${val[i].text}`;
-        img.src = val[i].img;
-        img.alt = val[i].alt;
-    
-        fragment.appendChild(li).appendChild(a).appendChild(img);
+        ul.appendChild(fragment);
+    };
     }
-
-    ul.appendChild(fragment);
-};
 
 createList();
