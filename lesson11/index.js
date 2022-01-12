@@ -31,7 +31,7 @@ const fetchData = async () => {
         return json.data;
 
     } catch(error) {
-        throw new Error(error);
+        console.error(error);
     } 
 };
 
@@ -44,7 +44,7 @@ const fetchListData = async () => {
     try {
         const data = await fetchData();
         if( data.length === 0 ) {
-            console.error(error);
+            throw new Error('データが空です。');
         }
         return data;
 
