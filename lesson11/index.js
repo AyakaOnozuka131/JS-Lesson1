@@ -44,7 +44,9 @@ const fetchListData = async () => {
     try {
         const data = await fetchData();
         if( data.length === 0 ) {
-            throw new Error('データが空です。');
+            const li = document.createElement("li");
+            li.textContent ='適切なデータが見つかりませんでした';
+            ul.appendChild(li);
         }
         return data;
 
