@@ -25,10 +25,9 @@ const createErrorMessage = (error) => {
  * Async関数 
  * @return {Array} 
  */
-const jsonUrl = 'https://myjson.dit.upm.es/api/bins/5tqv';
-const fetchData = async () => {
+const fetchData = async (endpoint) => {
     try {
-        const response = await fetch(jsonUrl) // 中身はresponseオブジェクトを含むpromise
+        const response = await fetch(endpoint) // 中身はresponseオブジェクトを含むpromise
         const json = await response.json(); //response オブジェクトから JSON を抽出
         return json.data;
 
@@ -41,10 +40,11 @@ const fetchData = async () => {
  * Async関数
  * fetchData関数から値が返ってきた後、その値を返す
  */
+const jsonUrl = 'https://myjson.dit.upm.es/api/bins/5tqv';
 const fetchListData = async () => {
     createLoading();
     try {
-        const data = await fetchData();
+        const data = await fetchData(jsonUrl);
         if( data.length === 0 ) {
             const li = document.createElement("li");
             li.textContent ='適切なデータが見つかりませんでした';
