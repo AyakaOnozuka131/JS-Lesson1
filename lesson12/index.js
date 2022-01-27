@@ -5,7 +5,6 @@ const createLoading = () => {
     const li = document.createElement("li");
     const loadingImg = document.createElement('img');
 
-    li.style.listStyle = "none";
     li.id = "js-loading";
     loadingImg.src = 'loading-circle.gif';
     ul.appendChild(li).appendChild(loadingImg);
