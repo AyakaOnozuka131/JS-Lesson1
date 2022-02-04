@@ -63,7 +63,6 @@ const fetchData = async (endpoint) => {
 const jsonUrl = 'https://myjson.dit.upm.es/api/bins/5tqv';
 const fetchListData = async () => {
     createLoading();
-    getInputNumber(); // promiseが返ってくるfetchData関数の前でgetInputNumberを実行する
     try {
         const data = await fetchData(jsonUrl);
         if( data.length === 0 ) {
@@ -112,6 +111,7 @@ button.addEventListener('click' , () => {
 
 modalButton.addEventListener('click' , () => {
   hideModal();
+  getInputNumber(); // promiseが返ってくるfetchData関数の前でgetInputNumberを実行する
   createList();
   removeButton();
 });
