@@ -38,7 +38,7 @@ const createErrorMessage = (error) => {
  */
  const getInputNumber = () => {
   const inputNumber = document.getElementById('js-input-number');
-  console.log(inputNumber.value);
+  return inputNumber.value
 };
 
 /**
@@ -64,13 +64,17 @@ const jsonUrl = 'https://myjson.dit.upm.es/api/bins/5tqv';
 const fetchListData = async () => {
     createLoading();
     try {
+        const number = await getInputNumber();
         const data = await fetchData(jsonUrl);
         if( data.length === 0 ) {
             const li = document.createElement("li");
             li.textContent ='適切なデータが見つかりませんでした';
             ul.appendChild(li);
         }
-        return data;
+        return {
+          data: data,
+          number: number
+        };
 
     } catch(error) {
         createErrorMessage(error);
@@ -81,11 +85,12 @@ const fetchListData = async () => {
 };
 
 /**
- * createList関数
+ * renderList関数
  * domのul内にli,aタグを作成し、fetchListDataで渡ってきた値を展開する
  */
-const createList = async() => {
-    const val = await fetchListData();
+const renderList = (arg) => {
+    console.log(arg.number); // 入力した値の確認用console（仕様には書いていないが、確認のため）
+    const val = arg.data;
     const fragment = document.createDocumentFragment();
     if( val ) {
         for (let i = 0; i < val.length; i++) {
@@ -111,7 +116,8 @@ button.addEventListener('click' , () => {
 
 modalButton.addEventListener('click' , () => {
   hideModal();
-  getInputNumber(); // promiseが返ってくるfetchData関数の前でgetInputNumberを実行する
-  createList();
+  fetchListData().then(data => {
+    renderList(data);
+  });
   removeButton();
 });
