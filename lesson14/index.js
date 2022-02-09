@@ -64,7 +64,7 @@ const jsonUrl = 'https://myjson.dit.upm.es/api/bins/5tqv';
 const fetchListData = async () => {
     createLoading();
     try {
-        const number = await getInputNumber();
+        const number = getInputNumber();
         const data = await fetchData(jsonUrl);
         if( data.length === 0 ) {
             const li = document.createElement("li");
