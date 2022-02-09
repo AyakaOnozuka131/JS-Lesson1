@@ -114,10 +114,9 @@ button.addEventListener('click' , () => {
   showModal();
 });
 
-modalButton.addEventListener('click' , () => {
+modalButton.addEventListener('click' , async () => {
   hideModal();
-  fetchListData().then(data => {
-    renderList(data);
-  });
+  const data = await fetchListData();
+  renderList(data);
   removeButton();
 });
