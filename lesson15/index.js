@@ -1,5 +1,4 @@
 const ul = document.getElementById('js-list');
-const form = document.getElementById('js-modal-form');
 const button = document.getElementById('js-button');
 const modal = document.getElementById('js-modal');
 const modalButton = document.getElementById('js-modal-button');
