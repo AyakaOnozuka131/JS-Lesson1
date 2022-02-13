@@ -63,17 +63,13 @@ const jsonUrl = 'https://myjson.dit.upm.es/api/bins/5tqv';
 const fetchListData = async () => {
     createLoading();
     try {
-        const inputValue = getInputValue();
         const data = await fetchData(jsonUrl);
         if( data.length === 0 ) {
             const li = document.createElement("li");
             li.textContent ='適切なデータが見つかりませんでした';
             ul.appendChild(li);
         }
-        return {
-          data: data,
-          inputValue: inputValue
-        };
+        return data;
 
     } catch(error) {
         createErrorMessage(error);
@@ -87,11 +83,11 @@ const fetchListData = async () => {
  * renderList関数
  * domのul内にli,aタグを作成し、fetchListDataで渡ってきた値を展開する
  */
-const renderList = (arg) => {
+const renderList = (data, inputValue) => {
     // 入力した値の確認用console（仕様には書いていないが、確認のため）
-    console.log(`年齢は${arg.inputValue.age}です`);
-    console.log(`名前は${arg.inputValue.name}です`);
-    const value = arg.data;
+    console.log(`年齢は${inputValue.age}です`);
+    console.log(`名前は${inputValue.name}です`);
+    const value = data;
     const fragment = document.createDocumentFragment();
     if( value ) {
         for (let i = 0; i < value.length; i++) {
@@ -120,5 +116,6 @@ modalButton.addEventListener('click' , async (event) => {
   event.preventDefault();
   removeButton();
   const data = await fetchListData();
-  renderList(data);
+  const inputValue = getInputValue();
+  renderList(data, inputValue);
 });
