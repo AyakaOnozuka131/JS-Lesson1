@@ -12,13 +12,9 @@ const createLoading = () => {
     ul.appendChild(li).appendChild(loadingImg);
 };
 
-const showModal = () => {
-  modal.classList.add('isShow');
-}
+const showModal = () => modal.classList.add('isShow');
 
-const hideModal = () => {
-  modal.classList.remove('isShow');
-}
+const hideModal = () => modal.classList.remove('isShow');
 
 const removeLoading = () => document.getElementById('js-loading').remove();
 
